@@ -6,15 +6,15 @@ import BuisnessOverview from "./components/BuisnessOverview";
 const App = () => {
   return (
     <>
-      <div className="min-h-screen w-full bg-white relative">
-        {/*  Diagonal Cross Center Fade Grid Background */}
+      <div className="relative min-h-screen w-full bg-white">
+        {/* Background grid pattern */}
         <div
-          className="absolute z-3 inset-0"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
-        linear-gradient(45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%),
-        linear-gradient(-45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%)
-      `,
+              linear-gradient(45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%),
+              linear-gradient(-45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%)
+            `,
             backgroundSize: "40px 40px",
             WebkitMaskImage:
               "radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)",
@@ -22,10 +22,10 @@ const App = () => {
               "radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)",
           }}
         />
-        <div className="">
-          <Navbar />
-        </div>
-        <main className="z-10">
+
+        {/* Content */}
+        <Navbar />
+        <main className="">
           <Hero />
           <BuisnessOverview />
         </main>

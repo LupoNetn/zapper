@@ -1,3 +1,4 @@
+import { ArrowRightToLine } from "lucide-react";
 import React from "react";
 
 const statGrid = [
@@ -5,6 +6,24 @@ const statGrid = [
   { name: "Emails costs monthly", stat: "2M+" },
   { name: "Loved by companies", stat: "5,000+" },
   { name: "Customer Satisfaction", stat: "98%" },
+];
+
+const services = [
+  {
+    name: "Smart Email Automation",
+    desc: "Automate your email campaigns with intelligent workflows that save time and boost engagement.",
+    img: "emailautomation.jpg",
+  },
+  {
+    name: "Multi-Channel Campaign",
+    desc: "Manage email, SMS, and social posts from one platform, so your brand stays consistent",
+    img: "campaign.jpg",
+  },
+  {
+    name: "Advanced Analytics",
+    desc: "Track engagement, conversions, and campaign performance with real-time insights",
+    img: "analytics.jpg",
+  },
 ];
 
 const BuisnessOverview = () => {
@@ -63,16 +82,76 @@ const BuisnessOverview = () => {
 
       {/* Second Section */}
 
-      <div>
+      <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {/* Heading */}
         <div className="text-center mt-10">
           <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl">
             Automation that delivers
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-gray-800 max-w-3xl mx-auto">
+          <p className="mt-3 text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             We help companies streamline marketing, engage customers, and drive
             growth with intelligent, easy-to-use automation tools.
           </p>
         </div>
+
+        {/* Services Grid */}
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <img
+                src={service.img}
+                alt={service.name}
+                className="h-48 w-full object-cover"
+              />
+              <div className="p-6 flex flex-col justify-between flex-grow">
+                <div>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                    {service.name}
+                  </h3>
+                  <p className="mt-2 text-sm sm:text-base text-gray-600">
+                    {service.desc}
+                  </p>
+                </div>
+                <button className="mt-4 inline-flex items-center text-purple-600 hover:text-purple-800 font-medium">
+                  Learn More
+                  <ArrowRightToLine className="ml-2 h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Third Section */}
+
+      <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mt-10">
+          <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl">
+            How It Works
+          </h2>
+          <p className="mt-3 text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+            Get started in minutes - connect your channels, set up automation
+            and watch your campaign run on autopilot
+          </p>
+        </div>
+
+       <div className="mt-6">
+         <div className="flex overflow-x-scroll gap-3 justify-center">
+          <button className="border border-gray-300 rounded-md p-1">
+            Design Your Workflows
+          </button>
+          <button className="border border-gray-300 rounded-md p-1">
+            Connect Your Channels
+          </button>
+          <button className="border border-gray-300 rounded-md p-1">
+           Launch & Optimize
+          </button>
+        </div>
+       </div>
       </div>
     </section>
   );
