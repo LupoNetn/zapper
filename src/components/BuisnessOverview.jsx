@@ -139,19 +139,20 @@ const BuisnessOverview = () => {
           </p>
         </div>
 
-       <div className="mt-6">
-         <div className="flex overflow-x-scroll gap-3 justify-center">
-          <button className="border border-gray-300 rounded-md p-1">
-            Design Your Workflows
-          </button>
-          <button className="border border-gray-300 rounded-md p-1">
-            Connect Your Channels
-          </button>
-          <button className="border border-gray-300 rounded-md p-1">
-           Launch & Optimize
-          </button>
-        </div>
-       </div>
+<div className="mt-6">
+  <div className="flex overflow-x-auto gap-3 justify-center">
+    <button className="border border-gray-300 rounded-md px-4 py-2 whitespace-nowrap">
+      Design Your Workflows
+    </button>
+    <button className="border border-gray-300 rounded-md px-4 py-2 whitespace-nowrap">
+      Connect Your Channels
+    </button>
+    <button className="border border-gray-300 rounded-md px-4 py-2 whitespace-nowrap">
+      Launch & Optimize
+    </button>
+  </div>
+</div>
+
       </div>
     </section>
   );
