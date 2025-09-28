@@ -1,17 +1,21 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 2, ease: "easeOut" }}
+    >
+      <section
       id="home"
       className="w-full mx-auto text-center mt-16 section-container"
     >
       {/* Headline */}
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
         Grow smarter with{" "}
-        <span className="text-purple-500 border border-dashed">
-          automation
-        </span>
+        <span className="text-purple-500 border border-dashed">automation</span>
       </h1>
 
       {/* Subtext */}
@@ -27,9 +31,7 @@ const Hero = () => {
       </div>
 
       {/* Button */}
-      <button className="btn">
-        Get Started Free
-      </button>
+      <button className="btn">Get Started Free</button>
 
       {/* Image with overlay */}
       <div className="flex flex-col items-center justify-center mt-8">
@@ -46,6 +48,7 @@ const Hero = () => {
 
       {/* TO-DO: Partners */}
     </section>
+    </motion.div>
   );
 };
 
