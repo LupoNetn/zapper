@@ -1,5 +1,5 @@
 import { ArrowRightToLine } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 
 const statGrid = [
   { name: "Campaigns automated", stat: "5,000+" },
@@ -26,7 +26,25 @@ const services = [
   },
 ];
 
+// Content to show under each step
+const stepContent = {
+  design: {
+    title: "Design Your Workflows",
+    text: "Drag-and-drop builder lets you design automation paths in minutes. Personalize emails, SMS, and social actions without coding.",
+  },
+  connect: {
+    title: "Connect Your Channels",
+    text: "Easily integrate your email lists, CRM, and social platforms so everything works together seamlessly.",
+  },
+  launch: {
+    title: "Launch & Optimize",
+    text: "Activate your campaigns, monitor performance, and let AI-powered analytics suggest improvements automatically.",
+  },
+};
+
 const BuisnessOverview = () => {
+  const [activeStep, setActiveStep] = useState("design");
+
   return (
     <section
       id="features"
@@ -57,16 +75,18 @@ const BuisnessOverview = () => {
             </span>
           </p>
 
-          <button className="btn">Learn more</button>
+          <button className="mt-4 inline-block bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md font-medium">
+            Learn more
+          </button>
         </div>
 
         {/* Stats Grid */}
         <div className="flex-1">
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-4">
             {statGrid.map((stat, i) => (
               <div
                 key={i}
-                className="flex flex-col items-start justify-center rounded-md bg-gray-50 border border-gray-200 p-6 sm:p-15 "
+                className="flex flex-col items-start justify-center rounded-md bg-gray-50 border border-gray-200 p-6"
               >
                 <p className="text-sm sm:text-base text-gray-500">
                   {stat.name}
@@ -81,10 +101,9 @@ const BuisnessOverview = () => {
       </div>
 
       {/* Second Section */}
-
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Heading */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-14">
           <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl">
             Automation that delivers
           </h2>
@@ -126,33 +145,70 @@ const BuisnessOverview = () => {
       </div>
 
       {/* Third Section */}
-
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Heading */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-14">
           <h2 className="font-semibold text-2xl sm:text-3xl lg:text-4xl">
             How It Works
           </h2>
           <p className="mt-3 text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Get started in minutes - connect your channels, set up automation
-            and watch your campaign run on autopilot
+            and watch your campaign run on autopilot.
           </p>
         </div>
 
-<div className="mt-6">
-  <div className="flex overflow-x-auto gap-3 justify-center">
-    <button className="border border-gray-300 rounded-md px-4 py-2 whitespace-nowrap">
-      Design Your Workflows
-    </button>
-    <button className="border border-gray-300 rounded-md px-4 py-2 whitespace-nowrap">
-      Connect Your Channels
-    </button>
-    <button className="border border-gray-300 rounded-md px-4 py-2 whitespace-nowrap">
-      Launch & Optimize
-    </button>
-  </div>
-</div>
+        {/* Step Buttons */}
+        <div className="mt-6">
+          <div className="flex overflow-x-auto gap-3 justify-center">
+            <button
+              onClick={() => setActiveStep("design")}
+              className={`border rounded-md px-4 py-2 whitespace-nowrap ${
+                activeStep === "design"
+                  ? "bg-purple-600 text-white"
+                  : "border-gray-300 text-gray-700"
+              }`}
+            >
+              Design Your Workflows
+            </button>
+            <button
+              onClick={() => setActiveStep("connect")}
+              className={`border rounded-md px-4 py-2 whitespace-nowrap ${
+                activeStep === "connect"
+                  ? "bg-purple-600 text-white"
+                  : "border-gray-300 text-gray-700"
+              }`}
+            >
+              Connect Your Channels
+            </button>
+            <button
+              onClick={() => setActiveStep("launch")}
+              className={`border rounded-md px-4 py-2 whitespace-nowrap ${
+                activeStep === "launch"
+                  ? "bg-purple-600 text-white"
+                  : "border-gray-300 text-gray-700"
+              }`}
+            >
+              Launch & Optimize
+            </button>
+          </div>
+        </div>
 
+        {/* Dynamic Content */}
+        <div className="mt-8 flex flex-col lg:flex-row items-center gap-8">
+          {/* Illustration Placeholder */}
+          <div className="w-full max-w-md h-64 rounded-lg shadow-md bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-3xl font-bold">
+            {stepContent[activeStep].title.charAt(0)}
+          </div>
+
+          <div className="flex-1 text-center lg:text-left">
+            <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
+              {stepContent[activeStep].title}
+            </h3>
+            <p className="mt-3 text-sm sm:text-base text-gray-600">
+              {stepContent[activeStep].text}
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

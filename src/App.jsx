@@ -9,7 +9,7 @@ const App = () => {
       <div className="relative min-h-screen w-full bg-white">
         {/* Background grid pattern */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 pointer-events-none"
           style={{
             backgroundImage: `
               linear-gradient(45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%),
@@ -25,7 +25,7 @@ const App = () => {
 
         {/* Content */}
         <Navbar />
-        <main className="">
+        <main className="relative">
           <Hero />
           <BuisnessOverview />
         </main>
